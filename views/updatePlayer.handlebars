@@ -1,0 +1,57 @@
+<div class="container">
+    <div class = "row">
+        <div class = "col-sm-12">
+            <h3>You are now updating Player named: {{textList.fname}} {{textList.lname}}</h3>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-sm-12">
+            <h6>Go Back to player list </h6>
+             <a href="/players" class="btn btn-primary mb-2">Go Back</a>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+        <div class="form-group col-xs-6 form-check form-check-inline">
+  <form class="form-inline" action="/playerUpdated/{{textList.id}}?" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">First name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "fname" value = "{{textList.fname}}" placeholder="First name">
+  <label class="sr-only" for="inlineFormInputName2">Last name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "lname" value = "{{textList.lname}}" placeholder="Last name">
+  <label class="sr-only" for="inlineFormInputName2">Goals</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "goals" value = "{{textList.goals}}" placeholder="Goals">
+  <label class="sr-only" for="inlineFormInputName2">Assists</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "assists" value = "{{textList.assists}}" placeholder="Assists">
+  <label class="sr-only" for="inlineFormInputName2">Saves</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "saves"  value = "{{textList.saves}}" placeholder="Saves">
+  <label class="sr-only" for="inlineFormInputName2">Salary</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "salary" value = "{{textList.salary}}" placeholder="Salary">
+  <select class="form-control" name = "position">
+      
+    <option value="{{textList.posID}}" selected>{{textList.posName}}</option>
+	    {{#each queryList}}
+    <option value={{this.id}}>{{this.name}}</option>
+    {{/each}}
+    </select>
+    <select class="form-control" name = "cteam">
+      
+    <option value="{{textList.teamID}}" selected>{{textList.teamName}}</option>
+            {{#each teamList}}
+    <option value={{this.id}}>{{this.team}}</option>
+    {{/each}}
+
+</select>
+  <select class="form-control" name = "nat">
+      
+    <option value="{{textList.natID}}" selected>{{textList.natName}}</option>
+            {{#each natList}}
+    <option value={{this.id}}>{{this.nat}}</option>
+    {{/each}}
+
+</select>
+  <button type="submit" class="btn btn-primary mb-2">Update</button>
+</form>
+        </div>
+    </div>
+    </div>
+</div>

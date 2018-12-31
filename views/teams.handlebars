@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+    <div class="col-sm-12">
+      <h3>Current team entity where teams can be added, updated, deleted and filtered</h3>
+      <h4>This is the one-to-many relationship with player. The team is the 1 in this relationship.</h4>
+      <h4>On delete players team is set to null and relationship is removed</h4>
+    </div>
+  </div>
+      <div class="row">
+        <div class="form-group col-xs-6 form-check form-check-inline">
+            <form class="form-inline" action="/addTeam" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">Team Name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "name" placeholder="Team Name">
+  <label class="sr-only" for="inlineFormInputName2">Division</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "division" placeholder="Division">
+  <button type="submit" class="btn btn-primary mb-2">Add Team</button>
+</form>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h6>Filter teams by division</h6>
+      </div>
+    </div>
+  <div class="row">
+      <div class="col-sm-12">
+        <form class="form-inline" action="/filterTeam" method="GET">
+          <select class="form-control" name = "division">
+      
+          <option value="" selected disabled>Division</option>
+            {{#each divisionList}}
+          <option value={{this.division}}>{{this.division}}</option>
+    {{/each}}
+</select>
+  <button type="submit" class="btn btn-primary mb-2">Filter</button>
+</form>
+      </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Team</th>
+        <th scope="col">Division</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each queryList}}
+      <tr>
+        <tr></tr>
+        <td>{{this.team}}</td>
+        <td>{{this.division}}</td>
+        <td><form class="form-inline" action="/viewRoster/{{this.id}}?" method="GET"><button type="submit" class="btn btn-primary mb-2">View Roster</button></form></td>
+        <td><form method='POST' action='/teams/{{this.id}}?_method=DELETE'><button class="btn btn-primary" type="submit">Delete</button></form></td>
+        <td><form class="form-inline" action="/updateCurrentTeam/{{this.id}}?" method="GET"><button type="submit" class="btn btn-primary mb-2">Update</button></form></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>   
+	 </div>
+  </div>
+</div>

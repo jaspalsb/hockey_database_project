@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row">
+    <div class="col-sm-12">
+      <h3>All star games where new games can be added and deleted.</h3>
+    </div>
+  </div>
+        <div class="row">
+        <div class="form-group col-xs-6 form-check form-check-inline">
+            <form class="form-inline" action="/addAllstar" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">Team Name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "season" placeholder="Season Year">
+  <label class="sr-only" for="inlineFormInputName2">Division</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "city" placeholder="City Host">
+  <button type="submit" class="btn btn-primary mb-2">Add all star game</button>
+</form>
+        </div>
+    </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4>add players to allstar game this is the many to many relationship</h4>
+            </div>
+        <div class="form-group col-xs-6 form-check form-check-inline">
+<form class="form-inline" action="/postAllstar" method="POST">
+  <select class="form-control" name = "Player">
+      
+    <option value="" selected disabled>Player</option>
+            {{#each playerList}}
+    <option value={{this.id}}>{{this.fname}} {{this.lname}}</option>
+    {{/each}}
+</select>
+<select class="form-control" name = "Allstar"> 
+    <option value="" selected disabled>Allstar</option>
+            {{#each starList}}
+    <option value={{this.id}}>{{this.season}} {{this.city}}</option>
+    {{/each}}
+</select>
+  <button type="submit" class="btn btn-primary mb-2">Add player</button>
+</form>
+        </div>
+    </div>
+  <div class="row">
+      <div class="col-sm-12">
+        <h3>Table displays the many to many relationiship for allstar games and players</h3>
+        <h3>Deleting the relationship does not delete rows in players nor allstar as the project specs state.</h3>
+      </div>
+    </div>
+        <div class="row">
+    <div class="col-sm-12">
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Goals</th>
+        <th scope="col">Assists</th>
+        <th scope="col">Saves</th>
+        <th scope="col">Position</th>
+        <th scope="col">Season</th>
+        <th scope="col">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each queryList}}
+      <tr>
+        <td>{{this.fname}}</td>
+        <td>{{this.lname}}</td>
+        <td>{{this.goals}}</td>
+        <td>{{this.assists}}</td>
+        <td>{{this.saves}}</td>
+        <td>{{this.position}}</td>
+        <td>{{this.season}}</td>
+        <td>{{this.city}}</td>
+        <td><form method='POST' action='/allstar/{{this.id}}?_method=DELETE'><button class="btn btn-primary" type="submit">Delete</button></form></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>   
+    </div>
+  </div>
+    
+</div>

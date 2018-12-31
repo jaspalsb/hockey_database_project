@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Add a new hockey player to database.</h1>
+    </div>
+  </div>
+   <div class="row">
+      <div class="col-sm">
+            Add hockey player
+      </div>
+   </div>
+    <div class="row">
+        <div class="form-group col-xs-6 form-check form-check-inline">
+  <form class="form-inline" action="/addPlayer" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">First name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "fname" placeholder="First name">
+  <label class="sr-only" for="inlineFormInputName2">Last name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "lname" placeholder="Last name">
+  <label class="sr-only" for="inlineFormInputName2">Goals</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "goals" placeholder="Goals">
+  <label class="sr-only" for="inlineFormInputName2">Assists</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "assists" placeholder="Assists">
+  <label class="sr-only" for="inlineFormInputName2">Saves</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "saves"  placeholder="Saves">
+
+  <label class="sr-only" for="inlineFormInputName2">Salary</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "salary" placeholder="Salary">
+  <select class="form-control" name = "position">
+      
+    <option value="" selected disabled>Position</option>
+	    {{#each queryList}}
+    <option value={{this.id}}>{{this.name}}</option>
+    {{/each}}
+    </select>
+    <select class="form-control" name = "cteam">
+      
+    <option value="" selected disabled>Team</option>
+            {{#each teamList}}
+    <option value={{this.id}}>{{this.team}}</option>
+    {{/each}}
+
+</select>
+  <select class="form-control" name = "nat">
+      
+    <option value="" selected disabled>Nationality</option>
+            {{#each natList}}
+    <option value={{this.id}}>{{this.nat}}</option>
+    {{/each}}
+
+</select>
+  <button type="submit" class="btn btn-primary mb-2">Add player</button>
+</form>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Add new nationality to DB</h3>
+                    <form class="form-inline" action="/addNat" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">Nationality</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "country" placeholder="Country Name">
+  <button type="submit" class="btn btn-primary mb-2">Add country</button>
+</form>
+      </div>
+    </div>
+        <div class="row">
+      <div class="col-sm-12">
+        <h3>Add new position to DB</h3>
+                    <form class="form-inline" action="/addPos" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">Position name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "position" placeholder="Position">
+  <button type="submit" class="btn btn-primary mb-2">Add Position</button>
+</form>
+      </div>
+    </div>
+</div>

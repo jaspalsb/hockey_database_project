@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>This is the roster for the {{templateTeam}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h6>This roster has scored {{goals}} goals</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h6>This roster's salary is: {{salary}}</h6>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-sm-12">
+            <h6>Go Back to team list </h6>
+             <a href="/teams" class="btn btn-primary mb-2">Go Back</a>
+        </div>
+    </div>
+      <div class="row">
+    <div class="col-sm-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Position</th>
+        <th scope="col">Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each queryList}}
+      <tr>
+        <td>{{this.fname}}</td>
+        <td>{{this.lname}}</td>
+        <td>{{this.position}}</td>
+        <td>{{this.team}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>   
+ </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+      <div class="row">
+    <div class="col-sm-12">
+        <h3>Search results for: {{templatefname}} {{templatelname}}</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Goals</th>
+        <th scope="col">Assists</th>
+        <th scope="col">Saves</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Position</th>
+        <th scope="col">Team</th>
+        <th scope="col">Nationality</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each queryList}}
+      <tr>
+        <td>{{this.fname}}</td>
+        <td>{{this.lname}}</td>
+        <td>{{this.goals}}</td>
+        <td>{{this.assists}}</td>
+        <td>{{this.saves}}</td>
+        <td>{{this.salary}}</td>
+        <td>{{this.position}}</td>
+        <td>{{this.cteam}}</td>
+        <td>{{this.nationality}}</td>
+        <td>  <form class="form-inline" action="/updatePlayer/{{this.id}}?" method="GET">
+              <button type="submit" class="btn btn-primary mb-2">Update</button>
+              </form></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>   
+ </div>
+  </div>
+</div>

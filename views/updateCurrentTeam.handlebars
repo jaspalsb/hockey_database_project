@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>You are now updating team named: {{textList.team}}</h3>
+        </div>
+    </div>
+    <div class="row">
+    <div class = "col-sm-12">
+            <h6>Go Back to team list </h6>
+             <a href="/teams" class="btn btn-primary mb-2">Go Back</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group col-xs-6 form-check form-check-inline">
+  <form class="form-inline" action="/teamUpdated/{{textList.id}}?" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">First name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "teamName" value = "{{textList.team}}" placeholder="Team name">
+  <label class="sr-only" for="inlineFormInputName2">Last name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" name = "division" value = "{{textList.division}}" placeholder="Division">
+  <button type="submit" class="btn btn-primary mb-2">Update</button>
+    </form>
+            </div>
+        </div>
+    </div>
+</div>

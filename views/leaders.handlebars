@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+<h3>League leaders in Goals, Assists, and Saves </h3>
+</div>
+<div class="row">
+      <div class="col-sm-6">
+<h4>Current Leaders in goals</h4>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Goals</th>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each goalList}}
+      <tr>
+        <tr></tr>
+        <td>{{this.fname}}</td>
+        <td>{{this.lname}}</td>
+        <td>{{this.goals}}</td>
+        <td>{{this.team}}</td>
+        <td>{{this.pos}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table> 
+    </div>
+          <div class="col-sm-6">
+        <h4>Current leaders in assists</h4>
+  <table class="table table-hover">
+    <thead class="bg-danger">
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Assists</th>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each assistsList}}
+      <tr>
+        <tr></tr>
+        <td>{{this.fname}}</td>
+        <td>{{this.lname}}</td>
+        <td>{{this.assists}}</td>
+        <td>{{this.team}}</td>
+        <td>{{this.pos}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table> 
+    </div>
+</div>
+  <div class="row">
+          <div class="col-sm-6">
+        <h4>Current Goalie leaders</h4>
+  <table class="table table-hover">
+    <thead class="bg-info">
+      <tr>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Saves</th>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each savesList}}
+      <tr>
+        <tr></tr>
+        <td>{{this.fname}}</td>
+        <td>{{this.lname}}</td>
+        <td>{{this.saves}}</td>
+        <td>{{this.team}}</td>
+        <td>{{this.pos}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+    </div>
+</div>
+</div>

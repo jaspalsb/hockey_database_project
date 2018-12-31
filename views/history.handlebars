@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Add new historical team to DB</h3>
+        </div>
+    </div>
+          <div class="row">
+        <div class="form-group col-xs-6 form-check form-check-inline">
+            <form class="form-inline" action="/addHistory" method="POST">
+  <label class="sr-only" for="inlineFormInputName2">Season Year</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name = "season" placeholder="Season year">
+  <label class="sr-only" for="inlineFormInputName2">Team Name</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" name= "team" placeholder="Team Name">
+  <button type="submit" class="btn btn-primary mb-2">Add Team</button>
+</form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Add player to historical team. This is many to many relationship</h3>
+        </div>
+    </div>
+          <div class="row">
+        <div class="form-group col-xs-6 form-check form-check-inline">
+<form class="form-inline" action="/postHistory" method="POST">
+  <select class="form-control" name = "playerAdd">
+      
+    <option value="" selected disabled>Player</option>
+	    {{#each playerList}}
+    <option value={{this.id}}>{{this.fname}} {{this.lname}}</option>
+    {{/each}}
+</select>
+  <select class="form-control" name = "teamAdd">
+      
+    <option value="" selected disabled>team</option>
+	    {{#each teamList}}
+    <option value={{this.id}}>{{this.season}} {{this.team}}</option>
+    {{/each}}
+</select>
+
+  <button type="submit" class="btn btn-primary mb-2">Add</button>
+</form>
+        </div>
+    </div>
+        <div class="row">
+      <div class="col-sm-12">
+        <h3>Table displays the many to many relationiship for historical teams and players.</h3>
+        <h4>The relationship is deleted on delete and the rows in players and historical teams are not deleted as project specs state.</h4>
+      </div>
+    </div>
+        <div class="row">
+    <div class="col-sm-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Player name</th>
+        <th scope="col">Season</th>
+         <th scope="col">Team</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each queryList}}
+      <tr>
+        <tr></tr>
+        <td>{{this.first}} {{this.last}}</td>
+        <td>{{this.season}}</td>
+        <td>{{this.team}}</td>
+        <td><form method='POST' action='/history/{{this.id}}?_method=DELETE'><button class="btn btn-primary" type="submit">Delete</button></form></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>  
+    </div>
+  </div>
+</div>
